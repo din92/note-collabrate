@@ -1,0 +1,146 @@
+*,*::before, *::after {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f3f3f3;
+    margin:0;
+    overflow:auto
+}
+.container{
+    width: auto;
+    height: auto;
+    padding: 100;
+    margin:100;
+    padding-top: 0;
+}
+.container .ql-editor{
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+    background-color:white;
+}
+
+.container .ql-container .ql-snow{
+    border:none;
+    display:flex;
+    justify-content:center;
+}
+
+.container .ql-toolbar .ql-snow{
+    display:flex;
+    justify-content:center;
+    position:sticky;
+    top:0;
+    z-index: 1;
+    background-color:#f3f3f3;
+    border:none;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+}
+@page{
+    margin:1in;
+}
+
+@media print {
+    body {
+        background:none;
+    }
+    .container .ql-eiditor{
+        width:6.5in;
+        height:9in;
+        padding:0;
+        margin: 0;
+        box-shadow: none;
+        align-self: flex-start;
+    }
+    .container .ql-toolbar .ql-snow{
+        display:none;
+    }
+} 
+
+/* login page css */
+.btn{
+    background:#2ecc71;
+    width:125px;
+    padding-top:5px;
+    padding-bottom:5px;
+    color:white;
+    border-radius:4px;
+    border: #27ae60 1px solid;
+    
+    margin-top:20px;
+    margin-bottom:20px;
+    float:left;
+    margin-left:16px;
+    font-weight:800;
+    font-size:0.8em;
+  }
+  
+  .btn:hover{
+    background:#2CC06B; 
+  }
+  .email{
+    background:#ecf0f1;
+    border: #ccc 1px solid;
+    border-bottom: #ccc 2px solid;
+    padding: 8px;
+    width:250px;
+    color:#060606;
+    margin-top:10px;
+    font-size:1em;
+    border-radius:4px;
+  }
+
+  .box{
+    background:white;
+    width:300px;
+    border-radius:6px;
+    margin: 0 auto 0 auto;
+    padding:0px 0px 70px 0px;
+    border: #2980b9 4px solid; 
+  }
+
+  .form{
+      margin: 0 auto;
+      padding: 100px;
+  }
+
+  p{
+    font-size:12px;
+    text-decoration: none;
+    color:#ffffff;
+  }
+  
+  .box-header {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size:1.5em;
+    color:#525252;
+  }
+
+  .box-body {
+    padding-left: 15px;
+  }
+  button {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #01d28e;
+    border: 1px solid #01d28e;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  input[type="submit"]:hover {
+    background: #6cf0c2;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+  }
