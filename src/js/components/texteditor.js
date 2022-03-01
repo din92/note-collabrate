@@ -102,7 +102,12 @@ class TextEditor extends Component {
             window.location.href = "/";
         })
         $("#apiCall").on("click", () => {
-            $.get(`https://api.agify.io?name=${user}`, (result) => {
+            let value = $("#username_api").val();
+            if(!value) {
+                alert("Please enter a name in the input box");
+                return;
+            }
+            $.get(`https://api.agify.io?name=${value}`, (result) => {
                 this.handleAPICall(result);
                 this.socket.emit("api-result",result)
             })
@@ -142,6 +147,7 @@ class TextEditor extends Component {
                 <div>
                     <Button id="docCloseBtn">Close</Button>
                     <Button id="apiCall">Call API</Button>
+                    <input type="text" id="username_api" name="username_api" placeholder="Please enter a name" style = {{"margin":"15px"}} className="email" />
                     <TableElem result={this.state.api_results}/>
                 </div>
                 <div>
