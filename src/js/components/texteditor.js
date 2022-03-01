@@ -116,8 +116,10 @@ class TextEditor extends Component {
         if (source != "user") return;
         this.socket.emit("send-changes", delta)
     }
-    handleUserList(users) {
+    handleUserList({users,removedUser}) {
+        if(removedUser) alert(`User ${removedUser} has stopped editing this note`)
         this.userList = users;
+ 
         console.log("this.userList=======", this.userList, users)
         this.setState({ users: this.userList });
     }

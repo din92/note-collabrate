@@ -78,8 +78,8 @@ logicio.on('connection',(sc)=>{
                 }
                 process[docId] = arr;
                 console.log("obj===",process[docId]);
-                sc.emit("get-user-list",process[docId]);
-                sc.broadcast.to(documentId).emit("get-user-list",process[docId])
+                sc.emit("get-user-list",{users:process[docId],removedUser:null});
+                sc.broadcast.to(documentId).emit("get-user-list",{users:process[docId],removedUser:null})
             }
         });
 
@@ -89,12 +89,12 @@ logicio.on('connection',(sc)=>{
             else{
                 let userList = process[docId];
                 console.log("before userlist: " , userList)
-                if(userList.length<0) return
+                if(!userList || userList.length<0) return
                 userList.splice(userList.indexOf(user),1);
                 console.log("after userlist: " ,userList)
                 process[docId]=userList;
-                sc.emit("get-user-list",process[docId]);
-                sc.broadcast.to(documentId).emit("get-user-list",process[docId]);
+                sc.emit("get-user-list",{users:process[docId],removedUser:user});
+                sc.broadcast.to(documentId).emit("get-user-list",{users:process[docId],removedUser:user});
                 sc.disconnect(true)
             }
         })
